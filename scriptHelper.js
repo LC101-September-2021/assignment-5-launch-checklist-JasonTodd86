@@ -53,7 +53,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
             document.getElementById("faultyItems").style.visibility = "visible";
             document.getElementById("launchStatus").innerHTML = "Shuttle Not Ready for Launch";
             document.getElementById("launchStatus").style.color = "rgb(199, 37, 78)";
-            if (fuelLevel < 0 || 10000) {
+            if (fuelLevel < 10000) {
                 document.getElementById("fuelStatus").innerHTML = `${fuelLevel} Fuel level too low for launch`;
             }
             if (cargoLevel > 10000) {
@@ -62,7 +62,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         }
     }
 }
-
+//Line 56 had a || comparator that was affecting the third box from the bottom, per TA's comment. Fixed on 12/24/21.
 async function myFetch() {
     let planetsReturned;
 
